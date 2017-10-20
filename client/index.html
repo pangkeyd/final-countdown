@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FB APP ID: 1985113405111396 -->
+	<!-- Getting Started -->
+	<!-- https://developers.facebook.com/quickstarts/1985113405111396/?platform=web -->
+	<title>FB LOGIN</title>
+</head>
+<body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+
+	function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+    	const token = response.authResponse.accessToken;
+    	const fbId = response.authResponse.userID;
+
+    	axios.post('http://localhost:3000/', {
+    		token: token,
+    		fbId: fbId
+    	})
+    	.then(rsp => {
+    		console.log(rsp);
+    	})
+    	.catch(err => {
+    		console.log(err);
+    	});
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1985113405111396',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+
+		FB.AppEvents.logPageView();
+  };
+
+
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<fb:login-button scope="public_profile,user_about_me,user_birthday,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
