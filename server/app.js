@@ -1,14 +1,16 @@
+'use strict'
+
 const express = require('express');
-const app = express()
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+const app = express();
 
-const index = require('./routes/index')
+require('dotenv').config();
 
-app.use('/', index)
+app.use(cors());
 
-app.listen(3000, function(){
-  console.log('AYO JALAN!')
-})
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+app.listen(3000, console.log('listening on port 3000'));

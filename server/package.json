@@ -1,17 +1,27 @@
 {
-  "name": "server",
+  "name": "final-countdown",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "mongodb": "^2.2.33",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "harynp, dpangkey, bembeng",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pangkeyd/final-countdown.git"
+  },
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "mongodb": "^2.2.33",
-    "sms-gateway-nodejs": "^0.1.0"
-  }
+  "bugs": {
+    "url": "https://github.com/pangkeyd/final-countdown/issues"
+  },
+  "homepage": "https://github.com/pangkeyd/final-countdown#readme",
+  "description": ""
 }
