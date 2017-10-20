@@ -1,4 +1,4 @@
-const mongo = require('../models/subscriber')
+const mongo = require('../models/subscriber');
 
 class Final {
 

@@ -15,7 +15,7 @@
     	const token = response.authResponse.accessToken;
     	const fbId = response.authResponse.userID;
 
-    	axios.post('http://localhost:3000/register', {
+    	axios.post('http://localhost:3000/', {
     		token: token,
     		fbId: fbId
     	})
@@ -49,7 +49,7 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<fb:login-button scope="public_profile,user_birthday,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,user_about_me,user_birthday,email" onlogin="checkLoginState();">
 </fb:login-button>
 
 <script type="text/javascript">
