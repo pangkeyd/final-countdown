@@ -1,7 +1,7 @@
 # Weekly Project Phase 2 (Week 1)
 
-[] FB Login
-[] Database
-[] Life expectancy API
-[] Cron
-[] Push mail/sms
+[x] FB Login
+[x] Database
+[x] Life expectancy API
+[x] Cron
+[x] Push mail/sms
