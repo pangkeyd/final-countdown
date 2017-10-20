@@ -33,3 +33,4 @@ class Tfc {
 }
 
 module.exports = Tfc;
+`Sisa umur anda ${result} hari`
