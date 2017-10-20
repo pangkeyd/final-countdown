@@ -3,6 +3,8 @@
 const mongo = require('./../models/subscriber');
 const LifeExpectancy = require('./../models/lifeExpectancy');
 const Facebook = require('./../models/facebook');
+const sendMessage = require('./../helpers/sendmessage')
+const cron = require('./../helpers/cron');
 
 class Tfc {
 	static register(req, res) {
@@ -22,9 +24,9 @@ class Tfc {
 			});
 		})
 		.then(result => {
-			res.status(200).send({
-				daysRemaining: result
-			})
+			res.status(200).send({ daysRemaining: result});
+			sendMessage(result);
+			cron(result);
 		})
 		.catch(err => {
 			res.status(200).send(err);
