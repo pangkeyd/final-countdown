@@ -14,4 +14,4 @@ function connect(cb){
 
 }
 
-module.exports = connect
+module.exports = connect;
