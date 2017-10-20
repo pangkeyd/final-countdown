@@ -5,8 +5,10 @@
 	<!-- Getting Started -->
 	<!-- https://developers.facebook.com/quickstarts/1985113405111396/?platform=web -->
 	<title>FB LOGIN</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<script src="jquery.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
 
@@ -20,6 +22,13 @@
     		fbId: fbId
     	})
     	.then(rsp => {
+        $('#fb-button').empty();
+        $('#fb-button').html(`<p>You have ${rsp.data.daysRemaining} days left</p>`);
+        $('#main-container').append(`
+            <audio class="audio" style="display:none" controls autoplay>
+              <source src="sample.mp3" type="audio/mpeg">
+            </audio>
+          `)
     		console.log(rsp);
     	})
     	.catch(err => {
@@ -38,8 +47,6 @@
 		FB.AppEvents.logPageView();
   };
 
-
-
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
@@ -48,12 +55,14 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
-<fb:login-button scope="public_profile,user_about_me,user_birthday,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<script type="text/javascript">
-
-</script>
+<div id="main-container">
+  <div id="title">
+    <h1>TFC</h1>
+  </div>
+  <div id="fb-button">
+    <fb:login-button scope="public_profile,user_about_me,user_birthday,email" onlogin="checkLoginState();">
+    </fb:login-button>
+  </div>
+</div>
 </body>
 </html>
